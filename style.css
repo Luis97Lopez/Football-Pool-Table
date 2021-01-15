@@ -1,0 +1,33 @@
+body{
+    margin: 2%;
+}
+
+#head{
+    text-align: center;
+}
+
+#head img{
+    width: 800px;
+    height: 260px;
+}
+
+#container div{
+    text-align: center;
+    float: left;
+    margin: 2%;
+    position: relative;
+}
+
+#table{
+    text-align: center;
+}
+
+#left{
+    width: 55%;
+}
+
+#right{
+    width: 25%;
+    height: 300px;
+}
+
