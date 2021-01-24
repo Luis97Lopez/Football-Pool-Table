@@ -3,7 +3,10 @@ const key = "AIzaSyAnTMDkCp-b2p4DsADBxO54Jx-2XPhD6-w";
 
 const table = document.getElementById("table")
 const places = document.getElementById("places")
+const games = document.getElementById("games")
+
 let datos
+let conf
 
 main()
 
@@ -19,6 +22,7 @@ async function leeHoja(range){
 
 async function leeAPI(){
     datos = await leeHoja('Sumatoria!A1:I')
+    conf = await leeHoja('Datos!A1:B')
 }
 
 function imprime(){
@@ -117,8 +121,21 @@ function imprimeLugares(numbers){
 
 }
 
+function imprimeListaJornadas(){
+    actual = parseInt(conf[0][1])
+    
+    for(let i = 1; i <= actual; i++){
+        const element = document.createElement('li')
+        element.innerHTML = `Jornada ${i}`
+
+        games.appendChild(element)
+    }
+    
+}
+
 async function main(){
     await leeAPI()
     imprime()
     imprimeLugares(obtenLugares())
+    imprimeListaJornadas()
 }
