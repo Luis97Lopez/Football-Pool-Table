@@ -18,7 +18,7 @@ async function leeHoja(range){
 }
 
 async function leeAPI(){
-    datos = await leeHoja('Sumatoria!A1:H')
+    datos = await leeHoja('Sumatoria!A1:I')
 }
 
 function imprime(){
