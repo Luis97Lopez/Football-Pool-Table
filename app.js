@@ -125,10 +125,13 @@ function imprimeListaJornadas(){
     actual = parseInt(conf[0][1])
     
     for(let i = 1; i <= actual; i++){
+        const ref = document.createElement('a')
+        ref.setAttribute('href', `./jornada.html?id=${i}`)
+
         const element = document.createElement('li')
         element.innerHTML = `Jornada ${i}`
-
-        games.appendChild(element)
+        ref.appendChild(element)
+        games.appendChild(ref)
     }
     
 }
