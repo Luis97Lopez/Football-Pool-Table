@@ -31,3 +31,53 @@ body{
     height: 300px;
 }
 
+.juegos{
+    column-count: 2;
+}
+
+.item-juegos{
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+    list-style-type: none;
+    margin: 5;
+    padding: 5;
+    color: black;
+}
+
+.item-juegos:hover{
+    text-decoration: underline;
+}
+
+#jornada_head{
+    height: 100px;
+    width: 100%;
+    margin: 2%;
+    margin-bottom: 3%;
+}
+
+#jornada_head img{
+    height: 100px;
+    width: 120px;
+    display: inline-block;
+}
+
+#jornada_head h1{
+    margin: 2%;
+    display: inline-block;
+}
+
+
+.answer-right{
+    color: green;
+}
+
+.answer-wrong{
+    color: red;
+}
+
+.answer-null{
+    color:rgb(226, 200, 48);
+}
+
+
