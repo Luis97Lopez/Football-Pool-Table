@@ -9,6 +9,15 @@ export const participantes = [
     "Chapa"
 ]
 
+export const jornada_especial = {
+    18: 'Cuartos de Final Ida',
+    19: 'Cuartos de Final Vuelta',
+    20: 'Semifinales Ida',
+    21: 'Semifinales Vuelta',
+    22: 'Final Ida',
+    23: 'Final Vuelta',
+}
+
 function moveChar(c,n) {
     return String.fromCharCode(c.charCodeAt(0) + n);
 }

@@ -1,4 +1,4 @@
-import {leeHoja} from './function.js'
+import {leeHoja, jornada_especial} from './function.js'
 import {agregaHead, agregaRow} from './html.js'
 
 const table = document.getElementById("table")
@@ -82,12 +82,16 @@ function imprimeLugares(numbers){
 }
 
 function imprimeListaJornadas(){    
-    for(let i = 1; i <= 17; i++){
+    for(let i = 1; i <= 23; i++){
         const ref = document.createElement('a')
         ref.setAttribute('href', `./jornada.html?id=${i}`)
 
         const element = document.createElement('li')
-        element.innerHTML = `Jornada ${i}`
+        if(i > 17){
+            element.innerHTML = jornada_especial[i]
+        }else{
+            element.innerHTML = `Jornada ${i}`
+        }
 
         element.setAttribute("class", "item-juegos")
 

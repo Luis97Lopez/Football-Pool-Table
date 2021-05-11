@@ -1,4 +1,4 @@
-import {leeTodosJornada, participantes} from './function.js'
+import {leeTodosJornada, participantes, jornada_especial} from './function.js'
 import {agregaHead} from './html.js'
 
 const url_string = window.location.href
@@ -7,7 +7,12 @@ const jornada = url.searchParams.get('id')
 const title = document.getElementById('title')
 
 document.title = `Jornada ${jornada}`
-title.innerHTML = `Respuestas de la jornada ${jornada}`
+
+if(jornada < 18){
+    title.innerHTML = `Respuestas de la jornada ${jornada}`
+}else{
+    title.innerHTML = `Respuestas de ${jornada_especial[jornada]}`
+}
 
 let datos
 
@@ -18,14 +23,17 @@ main()
 
 function transformData(){
     const users = []
+    let numPartidos = 0
     datos.forEach((d, idx) => {
-
         if(idx == 0){
             let row = {};
 
             let equipos = [];
-            const equiposTmp = d.values[0];
-            for(let i = 0; i < 9; i++){
+
+            const equiposTmp = d.values[0]
+            numPartidos = equiposTmp.length / 2
+            
+            for(let i = 0; i < numPartidos; i++){
                 equipos[i] = equiposTmp[2*i] + ' vs ' + equiposTmp[2*i + 1]
             }
 
@@ -35,16 +43,18 @@ function transformData(){
 
             users.push(row);
         }else{
-
             let row = {};
-            const _data = d.values[0];
+            let _data = d.values[0];
 
-            row.resultado = _data.splice(0,9);
-            row.total = _data.splice(0,1);    
+            row.resultado = _data.splice(0,numPartidos);
+            
+            _data = _data.filter(i=>i!="")
+            row.total = _data.splice(0,1);
+            
 
             if(_data.length == 0){
-                row.pronostico = Array(9).fill('NO DISPONIBLE')
-                row.resultado = Array(9).fill(-1)
+                row.pronostico = Array(numPartidos).fill('NO DISPONIBLE')
+                row.resultado = Array(numPartidos).fill(-1)
             }else{
                 row.pronostico = _data; 
             }
