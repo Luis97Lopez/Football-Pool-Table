@@ -61,11 +61,16 @@ function imprimeLugares(numbers){
     const names = datos[0]
     names.shift()
 
+    let place = -1;
+    let points = -1;
+
     numbers.forEach((value, idx) => {
         const tr = document.createElement("tr")
+
+        if(points != parseInt(value[1])) place = idx + 1
         
         let td = document.createElement("td")
-        td.innerHTML += `${idx+1}.-`
+        td.innerHTML += `${place}.-`
         tr.appendChild(td)
 
         td = document.createElement("td")
@@ -76,6 +81,7 @@ function imprimeLugares(numbers){
         td.innerHTML += `${value[1]} pts`
         tr.appendChild(td)
 
+        points = parseInt(value[1])
         places.appendChild(tr)
     })
 
