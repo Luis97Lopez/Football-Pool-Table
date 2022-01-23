@@ -1,4 +1,4 @@
-import {leeTodosJornada, participantes, jornada_especial} from './function.js'
+import {leeTodosJornada, jornada_especial} from './function.js'
 import {agregaHead} from './html.js'
 
 const url_string = window.location.href

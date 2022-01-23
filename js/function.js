@@ -1,13 +1,15 @@
-export const participantes = [
-    "Mario",
-    "Davs",
-    "Leo",
-    "Juls",
-    "Roul",
-    "Ruben",
-    "Loiz",
-    "Chapa"
-]
+export async function getParticipantes () {
+    const vars = await getEnvVars();
+    const id = vars.datasheet_id;
+    const key = vars.key;
+    const url =
+    `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sumatoria!B1:1?key=${key}`;
+    let participantes;
+    await fetch(url)
+        .then(response => response.json())
+        .then(data => participantes = data.values)
+    return participantes;
+}
 
 export const jornada_especial = {
     18: 'Cuartos de Final Ida',
@@ -67,6 +69,7 @@ export async function leeTodosJornada(j){
 
     params.push(`Partidos!B${j}:S${j}`)
 
+    const participantes = (await getParticipantes())[0];
     participantes.forEach(async p => {
         params.push(p + '!K' + j + ':AC' + j)
     })
