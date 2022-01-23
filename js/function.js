@@ -23,8 +23,9 @@ function moveChar(c,n) {
 }
 
 export async function leeHoja(range){
-    const id = "1ILBc__8JEni21H8ZAvEhF_1jYySZK-iryQBs6w7k2hw";
-    const key = "AIzaSyAnTMDkCp-b2p4DsADBxO54Jx-2XPhD6-w";
+    const vars = await getEnvVars();
+    const id = vars.datasheet_id;
+    const key = vars.key;
     const url =
     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${key}`;
     let arreglo;
@@ -35,8 +36,9 @@ export async function leeHoja(range){
 }
 
 export async function leeHojaLotes(ranges, majorDimension){
-    const id = "1ILBc__8JEni21H8ZAvEhF_1jYySZK-iryQBs6w7k2hw";
-    const key = "AIzaSyAnTMDkCp-b2p4DsADBxO54Jx-2XPhD6-w";
+    const vars = await getEnvVars();
+    const id = vars.datasheet_id;
+    const key = vars.key;
     const url = 
         `https://sheets.googleapis.com/v4/spreadsheets/${id}/values:batchGet?`;
 
@@ -71,4 +73,14 @@ export async function leeTodosJornada(j){
 
     datos = await leeHojaLotes(params, "ROWS");
     return datos
+}
+
+async function getEnvVars() {
+    let vars = ""
+    await fetch("../vars.json")
+    .then(response => {
+       return response.json();
+    })
+    .then(jsondata => vars = jsondata);
+    return vars;
 }
