@@ -1,32 +1,36 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title> QMX Bros </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <link rel="icon" href="./imgs/icon.png">
-        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     </head>
     <body>
-
         
-       
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet", href="./css/style.css"> 
-        
-        <div id="head">
-            <img src="./imgs/home.jpg">
+        <div id="head" class="hero">
+            <figure class="image is-3by1">
+                <img src="./imgs/home.jpg">
+            </figure>
         </div>
 
-        <div id="container">
-            <div id="left">
-                <h4> Resultados </h4>
-                <table id="table" class="table table-hover"> </table>
+        <section id="container" class="section columns is-desktop">
+            <div id="left" class="column is-three-quarters">
+                <div class="box table-container">
+                    <h4> Resultados </h4>
+                    <table id="table" class="table is-narrow is-fullwidth"> </table>
+                </div>
             </div>
-            <div id="right">
-                <h4> Lugares </h4>
-                <table id="places" class="table table-hover"> </table>
-
-                <h4> Jornadas </h4>
-                <ul id="games" class="juegos"> 
-                </ul>
+            <div id="right" class="column">
+                <div class="box table-container"> 
+                    <h4> Lugares </h4>
+                    <table id="places" class="table"> </table>
+                </div>
+                <div class="box">
+                    <h4> Jornadas </h4>
+                    <ul id="games" class="content is-small"> </ul>
+                </div>
             </div>
         </div>
         
