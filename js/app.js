@@ -5,13 +5,13 @@ const table = document.getElementById("table")
 const places = document.getElementById("places")
 const games = document.getElementById("games")
 
-let datos
+let datos, conf
 
 main()
 
 async function leeAPI(){
     datos = await leeHoja('Sumatoria!A1:I')
-    //conf = await leeHoja('Datos!A1:B')
+    conf = await leeHoja('Datos!B1:1')
 }
 
 function imprime(){
@@ -19,7 +19,7 @@ function imprime(){
         if(idx == 0){
             table.appendChild(agregaHead(row))
         }
-        else{
+        else if(idx <= conf[0]){
             table.appendChild(agregaRow(row))
         }
         
@@ -88,7 +88,7 @@ function imprimeLugares(numbers){
 }
 
 function imprimeListaJornadas(){    
-    for(let i = 1; i <= 23; i++){
+    for(let i = 1; i <= conf[0]; i++){
         const ref = document.createElement('a')
         ref.setAttribute('href', `./jornada.html?id=${i}`)
 
