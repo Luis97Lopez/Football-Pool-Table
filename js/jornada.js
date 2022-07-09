@@ -17,7 +17,9 @@ if(jornada < 18){
 let datos
 
 const container = document.getElementById('container')
-const table = document.getElementById("table")
+const names = document.getElementById("jornada-names")
+const games = document.getElementById("jornada-games")
+const total = document.getElementById("jornada-total")
 
 main()
 
@@ -69,37 +71,43 @@ function transformData(){
     return users
 }
 
-function agregaRow(row){
+function agregaRow(row, table){
     const {nombre, resultado, total, pronostico} = row;
 
     const tr = document.createElement("tr")
     let td;
 
-    td = document.createElement("th")
-    td.setAttribute("scope", "row")
-    td.innerHTML += nombre;
-    tr.appendChild(td)
-    
-    row.pronostico.forEach((column, idx) => {
-        let td
+    if (table === 'names') {
         td = document.createElement("td")
-
-        if(resultado[idx] == "0"){
-            td.setAttribute("class", "answer-wrong")
-        }else if(resultado[idx] == "1"){
-            td.setAttribute("class", "answer-right")
-        }else{
-            td.setAttribute("class", "answer-null")
-        }
-        
-        td.innerHTML += `${column}`
+        td.setAttribute("scope", "row")
+        td.innerHTML += nombre;
         tr.appendChild(td)
-    })
+    }
+    
+    if (table === 'games') {
+        row.pronostico.forEach((column, idx) => {
+            let td
+            td = document.createElement("td")
 
-    td = document.createElement("th")
-    td.setAttribute("scope", "row")
-    td.innerHTML += total;
-    tr.appendChild(td)
+            if(resultado[idx] == "0"){
+                td.setAttribute("class", "answer-wrong")
+            }else if(resultado[idx] == "1"){
+                td.setAttribute("class", "answer-right")
+            }else{
+                td.setAttribute("class", "answer-null")
+            }
+            
+            td.innerHTML += `${column}`
+            tr.appendChild(td)
+        })
+    }
+
+    if (table === 'total') {
+        td = document.createElement("td")
+        td.setAttribute("scope", "row")
+        td.innerHTML += total;
+        tr.appendChild(td)
+    }
 
     return tr
 }
@@ -107,9 +115,13 @@ function agregaRow(row){
 function imprime(){
     datos.forEach((row, idx) => {
         if(idx == 0){
-            table.appendChild(agregaHead([row.nombre, ...row.pronostico, row.total]))
+            names.appendChild(agregaHead([row.nombre]))
+            games.appendChild(agregaHead([...row.pronostico]))
+            total.appendChild(agregaHead([row.total]))
         }else{
-            table.appendChild(agregaRow(row))
+            names.appendChild(agregaRow(row, 'names'))
+            games.appendChild(agregaRow(row, 'games'))
+            total.appendChild(agregaRow(row, 'total'))
         }
         
     })

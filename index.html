@@ -5,27 +5,27 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <link rel="stylesheet", href="./css/style.css"> 
         <link rel="icon" href="./imgs/icon.png">
     </head>
-    <body>
-        
-        <div id="head" class="hero">
-            <figure class="image is-3by1">
-                <img src="./imgs/home.jpg">
-            </figure>
+    <body class="px-5">
+        <div id="head" class="is-flex is-align-items-center is-justify-content-center mt-6">
+            <a href="."> <img src="./imgs/new_header.png"> </a>
         </div>
 
-        <section id="container" class="section columns is-desktop">
+        <section id="container" class="columns">
             <div id="left" class="column is-three-quarters">
-                <div class="box table-container is-fullwidth">
+                <div class="box">
                     <h4> Resultados </h4>
-                    <table id="table" class="table is-narrow is-fullwidth"> </table>
+                    <div class="table-container">
+                        <table id="table" class="table is-narrow is-fullwidth"> </table>
+                    </div>
                 </div>
             </div>
-            <div id="right" class="column">
+            <div id="right"> 
                 <div class="box table-container"> 
                     <h4> Lugares </h4>
-                    <table id="places" class="table"> </table>
+                    <table id="places" class="table is-fullwidth"> </table>
                 </div>
                 <div class="box">
                     <h4> Jornadas </h4>

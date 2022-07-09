@@ -8,14 +8,24 @@
     <body>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <link rel="stylesheet", href="./css/style.css"> 
-        <div class="container is-max-desktop is-flex is-flex-direction-column">
+        <div class="container is-max-desktop is-flex is-flex-direction-column pt-3 px-3">
             <div id="jornada_head" class="mb-5">
                 <a href="./index.html"> <img src="./imgs/icon.png"> </a>
                 <h1 id="title" class="title"> </h1>
             </div>
-            <div class="table-container">
-                <table id="table" class="table is-fullwidth"> </table>
-            </div>
+            <div class="box container is-flex" style="width: 100%;" id="table">
+                <div class="">
+                    <table id="jornada-names" class="table jornada-table"> </table>
+                </div>
+
+                <div class="table-container">
+                    <table id="jornada-games" class="table jornada-table"> </table>
+                </div>
+
+                <div class="">
+                    <table id="jornada-total" class="table jornada-table"> </table>
+                </div>
+        </div>
         </div>
     </body>
 
