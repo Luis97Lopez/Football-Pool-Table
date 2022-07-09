@@ -1,5 +1,5 @@
 import {leeHoja, jornada_especial} from './function.js'
-import {agregaHead, agregaRow} from './html.js'
+import {agregaHead, agregaRow, agregaFoot} from './html.js'
 
 const table = document.getElementById("table")
 const places = document.getElementById("places")
@@ -24,6 +24,9 @@ function imprime(){
         }
         
     })
+
+    const scores = datos[datos.length-1]
+    table.appendChild(agregaFoot(scores))
 }
 
 

@@ -8,32 +8,33 @@
         <link rel="stylesheet", href="./css/style.css"> 
         <link rel="icon" href="./imgs/icon.png">
     </head>
-    <body class="px-5">
-        <div id="head" class="is-flex is-align-items-center is-justify-content-center mt-6">
-            <a href="."> <img src="./imgs/new_header.png"> </a>
-        </div>
+    <body>
+        <div class="px-5 mb-6">
+            <div id="head" class="is-flex is-align-items-center is-justify-content-center mt-6">
+                <a href="."> <img src="./imgs/new_header.png"> </a>
+            </div>
 
-        <section id="container" class="columns">
-            <div id="left" class="column is-three-quarters">
-                <div class="box">
-                    <h4> Resultados </h4>
-                    <div class="table-container">
-                        <table id="table" class="table is-narrow is-fullwidth"> </table>
+            <section id="container" class="columns">
+                <div id="left" class="column is-three-quarters">
+                    <div class="box">
+                        <h4> Resultados </h4>
+                        <div class="table-container">
+                            <table id="table" class="table is-narrow is-fullwidth"> </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="right"> 
+                    <div class="box table-container"> 
+                        <h4> Lugares </h4>
+                        <table id="places" class="table is-fullwidth"> </table>
+                    </div>
+                    <div class="box">
+                        <h4> Jornadas </h4>
+                        <ul id="games" class="content is-small"> </ul>
                     </div>
                 </div>
             </div>
-            <div id="right"> 
-                <div class="box table-container"> 
-                    <h4> Lugares </h4>
-                    <table id="places" class="table is-fullwidth"> </table>
-                </div>
-                <div class="box">
-                    <h4> Jornadas </h4>
-                    <ul id="games" class="content is-small"> </ul>
-                </div>
-            </div>
-        </div>
-        
+        </div>    
         <script async="true" src="./js/app.js" type="module"> </script>
     </body>
 </html>
