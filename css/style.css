@@ -52,23 +52,21 @@ body{
 }
 
 #jornada_head{
-    height: 100px;
     width: 100%;
     margin: 2%;
     margin-bottom: 3%;
+    display:flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 #jornada_head img{
-    height: 100px;
-    width: 120px;
-    display: inline-block;
+    width: 6rem;
 }
 
 #jornada_head h1{
-    margin: 2%;
-    display: inline-block;
+    font-size: 2rem;
 }
-
 
 .answer-right{
     color: green;
